@@ -8,6 +8,6 @@ void h_input(void *thiz, void *ex_ab, void *ex_ac){
 
 void *sys_in = DobbySymbolResolver(OBFUSCATE("/system/lib/libinput.so"), OBFUSCATE("_ZN7android13InputConsumer21initializeMotionEventEPNS_11MotionEventEPKNS_12InputMessageE"));
     
-if (sys_in != NULL){
+if (NULL != sys_in){
    DobbyHook((void *)sys_in, (void *) h_input, (void **)&orig_input);
 }
