@@ -1,5 +1,5 @@
 
-void orig_input(void *thiz, void *ex_ab, void *ex_ac);
+void (*orig_input)(void *thiz, void *ex_ab, void *ex_ac);
 void h_input(void *thiz, void *ex_ab, void *ex_ac){
     orig_input(thiz,ex_ac,ex_ac);
     ImGui_ImplAndroid_HandleInputEvent((AInputEvent *)thiz); 
