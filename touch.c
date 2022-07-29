@@ -1,9 +1,9 @@
 
-#define HOOK_DEF(ret, func, ...) \
+#define HOOK(ret, func, ...) \
     ret (*orig##func)(__VA_ARGS__); \
     ret my##func(__VA_ARGS__)
 
-HOOK_DEF(void, Input, void *thiz, void *ex_ab, void *ex_ac){ // 触摸设置
+HOOK(void, Input, void *thiz, void *ex_ab, void *ex_ac){ // 触摸设置
     origInput(thiz, ex_ab, ex_ac);
     ImGui_ImplAndroid_HandleInputEvent((AInputEvent *)thiz); // 处理imgui输入
     return;
